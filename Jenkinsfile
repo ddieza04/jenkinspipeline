@@ -6,7 +6,7 @@ pipeline{
     }
     parameters{
         string(name:'OPERATION', defaultValue:'package', description: 'Operación maven a realizar')
-        string(name:'REPO_URL', defaultValue:'https://github.com/jesuscle/junitmavenexample', description: 'Url del repositorio Git')        
+        string(name:'REPO_URL', defaultValue:'https://github.com/ddieza04/jenkinspipeline.git', description: 'Url del repositorio Git')        
     }
     stages{
         stage("Verificación"){
