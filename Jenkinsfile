@@ -2,7 +2,7 @@ pipeline{
     
     agent any
     tools {
-        maven "maven-3.8.2"
+        maven "Maven-3.8.2"
     }
     parameters{
         string(name:'OPERATION', defaultValue:'package', description: 'Operación maven a realizar')
@@ -11,8 +11,8 @@ pipeline{
     stages{
         stage("Verificación"){
             steps {
-                sh "java -version"
-                sh "mvn -version"
+                bat "java -version"
+                bat "mvn -version"
                 echo "Operación a ejecutar: ${params.OPERATION}"
             }
         }
@@ -20,7 +20,7 @@ pipeline{
         stage ("Descarga del código y build") {
             steps {
                 git "${params.REPO_URL}"
-                sh "mvn clean ${params.OPERATION}"
+                bat "mvn clean ${params.OPERATION}"
             }
         }
     }
